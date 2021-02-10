@@ -15,7 +15,7 @@ router.register(fr'^{API_URL_START}/'
                 basename='posts')
 
 urlpatterns = [
-    path(f'{API_URL_START}/{API_VERSION}api-token-auth/',
+    path(f'{API_URL_START}/{API_VERSION}/api-token-auth/',
          auth_views.obtain_auth_token),
     path('', include(router.urls))
 ]
