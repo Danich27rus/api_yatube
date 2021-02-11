@@ -1,11 +1,10 @@
 from rest_framework import serializers
 
-from .models import Post, Comment
+from .models import Comment, Post
 
 
 class PostSerializer(serializers.ModelSerializer):
-    author = serializers.PrimaryKeyRelatedField(source='author.username',
-                                                read_only=True)
+    author = serializers.StringRelatedField(source='author.username',)
 
     class Meta:
         fields = '__all__'
@@ -13,8 +12,7 @@ class PostSerializer(serializers.ModelSerializer):
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    author = serializers.PrimaryKeyRelatedField(source='author.username',
-                                                read_only=True)
+    author = serializers.StringRelatedField(source='author.username',)
 
     class Meta:
         fields = '__all__'
