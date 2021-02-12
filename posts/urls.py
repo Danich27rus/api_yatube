@@ -6,10 +6,6 @@ from .views import CommentViewSet, PostViewSet
 
 API_VERSION = 'v1'
 
-file = open("api_prefix.txt", 'r')
-content = file.read()
-file.close()
-
 router = DefaultRouter()
 router.register('posts', PostViewSet,
                 basename='posts')
@@ -18,7 +14,7 @@ router.register(r'^posts/(?P<post_id>.+)/comments',
                 basename='posts')
 
 urlpatterns = [
-    path(f'{content}/{API_VERSION}/api-token-auth/',
+    path(f'{API_VERSION}/api-token-auth/',
          auth_views.obtain_auth_token),
-    path(f'{content}/{API_VERSION}/', include(router.urls))
+    path(f'{API_VERSION}/', include(router.urls))
 ]
