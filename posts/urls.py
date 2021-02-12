@@ -8,7 +8,6 @@ API_VERSION = 'v1'
 
 file = open("api_prefix.txt", 'r')
 content = file.read()
-print(content)
 file.close()
 
 router = DefaultRouter()
